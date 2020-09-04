@@ -61,14 +61,3 @@ variable "vault_name" {
 
   default = "vaultcca"
 }
-
-variable "cca_user_principal_names" {
-  description   = "What users should get access to Resource Group as Contributor."
-  type          = map
-
-  default =     {
-            "Marty Mazurik" = "marty@cloudcomputingassociates.com",
-            "Ray Mazurik" = "ray@cloudcomputingassociates.com"
-  }
-                
-}
