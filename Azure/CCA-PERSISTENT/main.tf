@@ -4,7 +4,7 @@ provider "azurerm" {
   version = ">= 2.0"  # auto reads: ARM_SUBSCRIPTION_ID, ARM_TENANT_ID, etc. from env vars
 }
 
-data "azurerm_subscription" "current" {    
+data "azurerm_client_config" "current" {    
 }									
 
 # create Resource Group 
@@ -25,10 +25,10 @@ resource "azurerm_container_registry" "registry" {
 
 # create Azure Key Vault ("vaultcca")
 resource "azurerm_key_vault" "vault" {
-  name                = var.vault_name
+  name                = var.vault_nameS
   location            = var.location
   resource_group_name = var.resource_group_name
   sku_name = "standard"
-  tenant_id           = var.tenant_id
+  tenant_id           = azurerm_client_config.current.tenant_id
 }
 

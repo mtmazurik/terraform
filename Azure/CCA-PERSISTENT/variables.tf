@@ -1,8 +1,3 @@
-variable "tenant_id" {
-  description   = "Azure Tenant Id."
-  type          = string
-
-}
 
 variable "location" {
   description   = "Azure location for the provisioned resources."
